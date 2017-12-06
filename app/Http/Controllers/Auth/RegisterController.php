@@ -49,8 +49,22 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'dateB' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed',
+
+        ],
+        [
+          'name.required'=> 'El campo Nombre es requerido.',
+          'lastname.required'=> 'El campo Apellido es requerido.',
+          'dateB.numeric'=> 'El campo Fecha de Nacimiento es requerido.',
+          'email.required'=> 'El campo Email es requerido.',
+          'username.required'=> 'El campo Nombre de Usuario es requerido.',
+          'password.required'=> 'El campo Contraseña es requerido.',
+          'password_confirmation.required'=> 'El campo Repetir Contraseña es requerido.'
+
         ]);
     }
 
