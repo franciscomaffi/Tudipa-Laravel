@@ -14,9 +14,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+     protected $fillable = ['name', 'lastname', 'dateB', 'email', 'username', 'password'];
+
+     public function products(){
+       return $this->belongsToMany(Producto::class); //'categories_id');
+     }
+
 
     /**
      * The attributes that should be hidden for arrays.
